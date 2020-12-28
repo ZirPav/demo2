@@ -3,18 +3,20 @@ package com.example.demo.mqactive;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ActiveMQConsumer {
 
-    private String str;
+    private List<String> list = new ArrayList<>();
 
     @JmsListener(destination = "superqueue")
     public void getMessage(String message) {
-        System.out.println(message);
-        str = message;
+        list.add(message);
     }
 
-    public String getStr() {
-        return str;
+    public List<String> getList() {
+        return list;
     }
 }

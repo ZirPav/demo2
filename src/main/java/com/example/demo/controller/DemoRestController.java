@@ -18,6 +18,6 @@ public class DemoRestController {
 
     @GetMapping("/activemq")
     public String getStr() {
-        return activeMQConsumer.getStr();
+        return activeMQConsumer.getList().remove(0);
     }
 }
